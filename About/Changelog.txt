@@ -1,5 +1,8 @@
 # Changelog for NeolithicScavenging
 
+1.4.1 - Royalty guests will now not be able to scavenge
+
+
 1.4.0 - First publish.
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 

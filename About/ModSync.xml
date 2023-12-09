@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>5f9125a8-7f15-46e6-81e0-6e7f1e7daff1</ID>
   <ModName>Neolithic Scavenging (Continued)</ModName>
-  <Version>1.4.0</Version>
+  <Version>1.4.1</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>
@@ -12,7 +12,3 @@
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
-
-
-
-
