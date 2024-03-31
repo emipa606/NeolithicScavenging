@@ -9,7 +9,7 @@ internal class ScavengeSettings : ModSettings
 {
     private static Vector2 scrollPosition = Vector2.zero;
     private List<TerrainSettings> biomeSettingsValues;
-    public List<string> disabledTerrains = new List<string>();
+    public List<string> disabledTerrains = [];
 
     private List<string> stringKeys;
     public Dictionary<string, TerrainSettings> terrainSettings;
@@ -28,7 +28,7 @@ internal class ScavengeSettings : ModSettings
 
         if (disabledTerrains is null)
         {
-            disabledTerrains = new List<string>();
+            disabledTerrains = [];
         }
 
         if (terrainSettings is null)
@@ -70,7 +70,7 @@ internal class ScavengeSettings : ModSettings
             var biomeSettings = terrainSettings[terrain.defName];
             if (disabledTerrains is null)
             {
-                disabledTerrains = new List<string>();
+                disabledTerrains = [];
             }
 
             var disabled = disabledTerrains.Contains(terrain.defName);

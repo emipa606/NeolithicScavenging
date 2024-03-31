@@ -1,5 +1,8 @@
 # Changelog for NeolithicScavenging
 
+1.5.0 - Mod updated for 1.5 and passed autotests
+
+
 1.4.1 - Royalty guests will now not be able to scavenge
 
 

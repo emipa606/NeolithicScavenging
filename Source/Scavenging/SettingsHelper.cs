@@ -124,9 +124,7 @@ internal static class SettingsHelper
     public static void AddLabeledTextField(this Listing_Standard listing_Standard, string label,
         ref string settingsValue, float leftPartPct = 0.5f)
     {
-        Rect rect;
-        Rect rect2;
-        listing_Standard.LineRectSpilter(out rect, out rect2, leftPartPct);
+        listing_Standard.LineRectSpilter(out var rect, out var rect2, leftPartPct);
         Widgets.Label(rect, label);
         var text = settingsValue;
         settingsValue = Widgets.TextField(rect2, text);
@@ -135,9 +133,7 @@ internal static class SettingsHelper
     public static void AddLabeledNumericalTextField<T>(this Listing_Standard listing_Standard, string label,
         ref T settingsValue, float leftPartPct = 0.5f, float minValue = 1f, float maxValue = 100000f) where T : struct
     {
-        Rect rect;
-        Rect rect2;
-        listing_Standard.LineRectSpilter(out rect, out rect2, leftPartPct);
+        listing_Standard.LineRectSpilter(out var rect, out var rect2, leftPartPct);
         Widgets.Label(rect, label);
         var text = settingsValue.ToString();
         Widgets.TextFieldNumeric(rect2, ref settingsValue, ref text, minValue, maxValue);
@@ -151,24 +147,17 @@ internal static class SettingsHelper
         return rect;
     }
 
-    public static Rect LineRectSpilter(this Listing_Standard listing_Standard, out Rect leftHalf, out Rect rightHalf,
+    public static void LineRectSpilter(this Listing_Standard listing_Standard, out Rect leftHalf, out Rect rightHalf,
         float leftPartPct = 0.5f, float? height = null)
     {
         var rect = listing_Standard.LineRectSpilter(out leftHalf, leftPartPct, height);
         rightHalf = rect.RightPart(1f - leftPartPct).Rounded();
-        return rect;
     }
 
-    public class LabeledRadioValue<T>
+    public class LabeledRadioValue<T>(string label, T val)
     {
-        public LabeledRadioValue(string label, T val)
-        {
-            Label = label;
-            Value = val;
-        }
+        public string Label { get; } = label;
 
-        public string Label { get; set; }
-
-        public T Value { get; set; }
+        public T Value { get; } = val;
     }
 }

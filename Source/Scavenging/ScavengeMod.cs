@@ -13,8 +13,7 @@ internal class ScavengeMod : Mod
     {
         settings = GetSettings<ScavengeSettings>();
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(
-                ModLister.GetActiveModWithIdentifier("Mlie.NeolithicScavenging"));
+            VersionFromManifest.GetVersionFromModMetaData(pack.ModMetaData);
     }
 
     public override void DoSettingsWindowContents(Rect inRect)

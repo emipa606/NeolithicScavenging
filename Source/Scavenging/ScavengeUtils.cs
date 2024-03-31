@@ -19,26 +19,29 @@ public static class ScavengeUtils
 
             if (terrain.modExtensions is null)
             {
-                terrain.modExtensions = new List<DefModExtension>();
+                terrain.modExtensions = [];
             }
 
             terrain.modExtensions.Add(new TerrainExtension
             {
                 workAmount = 300,
                 failChance = 0.4f,
-                scavengables = new List<ScavengableRecord>
-                {
+                scavengables =
+                [
                     new ScavengableRecord
                         { thingDef = "SC_Snail", chance = 0.7f, amountToSpawn = new IntRange { min = 1, max = 1 } },
+
                     new ScavengableRecord
                         { thingDef = "SC_Frog", chance = 0.15f, amountToSpawn = new IntRange { min = 1, max = 1 } },
+
                     new ScavengableRecord
                     {
                         thingDef = "SC_Beetle", chance = 0.05f, amountToSpawn = new IntRange { min = 1, max = 1 }
                     },
+
                     new ScavengableRecord
                         { thingDef = "SC_Moss", chance = 0.6f, amountToSpawn = new IntRange { min = 1, max = 1 } }
-                }
+                ]
             });
         }
     }
