@@ -26,41 +26,32 @@ internal class ScavengeSettings : ModSettings
             return;
         }
 
-        if (disabledTerrains is null)
-        {
-            disabledTerrains = [];
-        }
+        disabledTerrains ??= [];
 
-        if (terrainSettings is null)
-        {
-            terrainSettings = new Dictionary<string, TerrainSettings>();
-        }
+        terrainSettings ??= new Dictionary<string, TerrainSettings>();
     }
 
     public void DoSettingsWindowContents(Rect inRect)
     {
         var terrainDefs = DefDatabase<TerrainDef>.AllDefs.Where(x => x.HasModExtension<TerrainExtension>()).ToList();
-        var scrollHeight = GetScrollHeight(terrainDefs);
+        var scrollHeight = getScrollHeight(terrainDefs);
         var rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);
         var rect2 = new Rect(0f, 0f, rect.width - 60f, scrollHeight);
         Widgets.BeginScrollView(rect, ref scrollPosition, rect2);
         var listingStandard = new Listing_Standard();
         listingStandard.Begin(rect2);
-        if (ScavengeMod.currentVersion != null)
+        if (ScavengeMod.CurrentVersion != null)
         {
             listingStandard.Gap();
             GUI.contentColor = Color.gray;
-            listingStandard.Label("SC.ModVersion".Translate(ScavengeMod.currentVersion));
+            listingStandard.Label("SC.ModVersion".Translate(ScavengeMod.CurrentVersion));
             GUI.contentColor = Color.white;
         }
 
         foreach (var terrain in terrainDefs)
         {
             listingStandard.GapLine();
-            if (terrainSettings is null)
-            {
-                terrainSettings = new Dictionary<string, TerrainSettings>();
-            }
+            terrainSettings ??= new Dictionary<string, TerrainSettings>();
 
             if (!terrainSettings.ContainsKey(terrain.defName))
             {
@@ -68,10 +59,7 @@ internal class ScavengeSettings : ModSettings
             }
 
             var biomeSettings = terrainSettings[terrain.defName];
-            if (disabledTerrains is null)
-            {
-                disabledTerrains = [];
-            }
+            disabledTerrains ??= [];
 
             var disabled = disabledTerrains.Contains(terrain.defName);
             listingStandard.CheckboxLabeled("SC.Disable".Translate() + " " + terrain.label, ref disabled);
@@ -105,20 +93,14 @@ internal class ScavengeSettings : ModSettings
                     continue;
                 }
 
-                if (biomeSettings.scavengingChance is null)
-                {
-                    biomeSettings.scavengingChance = new Dictionary<string, float>();
-                }
+                biomeSettings.scavengingChance ??= new Dictionary<string, float>();
 
                 var scavengeValue = biomeSettings.scavengingChance[thingDef.defName] = scavengable.chance;
                 listingStandard.SliderLabeled("SC.ScavengingChanceFor".Translate(thingDef.label),
                     ref scavengeValue, scavengeValue.ToStringPercent());
                 biomeSettings.scavengingChance[thingDef.defName] = scavengeValue;
 
-                if (biomeSettings.spawnAmount is null)
-                {
-                    biomeSettings.spawnAmount = new Dictionary<string, IntRange>();
-                }
+                biomeSettings.spawnAmount ??= new Dictionary<string, IntRange>();
 
                 var spawnAmount = biomeSettings.spawnAmount[thingDef.defName] = scavengable.amountToSpawn;
                 listingStandard.IntRange("SC.SpawnAmount".Translate(thingDef.label), ref spawnAmount, 1, 999);
@@ -132,7 +114,7 @@ internal class ScavengeSettings : ModSettings
         Write();
     }
 
-    private float GetScrollHeight(List<TerrainDef> terrainDefs)
+    private float getScrollHeight(List<TerrainDef> terrainDefs)
     {
         float num = 30;
         foreach (var terrain in terrainDefs)

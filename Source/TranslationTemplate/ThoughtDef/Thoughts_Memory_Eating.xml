@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: ate mashed food -->
+  <AteMashedFood.stages.ate_mashed_food.label>ate mashed food</AteMashedFood.stages.ate_mashed_food.label>
+  <!-- EN: I ate some barely edible food. I'm not even sure I could identify what was in it. -->
+  <AteMashedFood.stages.ate_mashed_food.description>I ate some barely edible food. I'm not even sure I could identify what was in it.</AteMashedFood.stages.ate_mashed_food.description>
+  <!-- EN: ate scavenged food -->
+  <AteScavengedFood.stages.ate_scavenged_food.label>ate scavenged food</AteScavengedFood.stages.ate_scavenged_food.label>
+  <!-- EN: I ate something raw that I probably shouldn't have. -->
+  <AteScavengedFood.stages.ate_scavenged_food.description>I ate something raw that I probably shouldn't have.</AteScavengedFood.stages.ate_scavenged_food.description>
+</LanguageData>

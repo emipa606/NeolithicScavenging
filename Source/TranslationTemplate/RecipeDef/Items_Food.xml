@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: make neolithic dried mush -->
+  <SC_Make_NeolithicDriedMush.label>make neolithic dried mush</SC_Make_NeolithicDriedMush.label>
+  <!-- EN: Make neolithic dried mush. -->
+  <SC_Make_NeolithicDriedMush.description>Make neolithic dried mush.</SC_Make_NeolithicDriedMush.description>
+  <!-- EN: Making neolithic dried mush. -->
+  <SC_Make_NeolithicDriedMush.jobString>Making neolithic dried mush.</SC_Make_NeolithicDriedMush.jobString>
+  <!-- EN: make neolithic dried mush x4 -->
+  <SC_Make_NeolithicDriedMushBulk.label>make neolithic dried mush x4</SC_Make_NeolithicDriedMushBulk.label>
+  <!-- EN: Make neolithic dried mush. -->
+  <SC_Make_NeolithicDriedMushBulk.description>Make neolithic dried mush.</SC_Make_NeolithicDriedMushBulk.description>
+  <!-- EN: Making neolithic dried mush. -->
+  <SC_Make_NeolithicDriedMushBulk.jobString>Making neolithic dried mush.</SC_Make_NeolithicDriedMushBulk.jobString>
+</LanguageData>

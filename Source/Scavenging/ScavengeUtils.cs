@@ -17,10 +17,7 @@ public static class ScavengeUtils
                 continue;
             }
 
-            if (terrain.modExtensions is null)
-            {
-                terrain.modExtensions = [];
-            }
+            terrain.modExtensions ??= [];
 
             terrain.modExtensions.Add(new TerrainExtension
             {
@@ -48,21 +45,21 @@ public static class ScavengeUtils
 
     public static List<IntVec3> GetScavengableCells(IntVec3 root, Map map)
     {
-        return GenRadial.RadialCellsAround(root, 20, true).Where(x => x != root && IsGoodCell(x, map)
+        return GenRadial.RadialCellsAround(root, 20, true).Where(x => x != root && isGoodCell(x, map)
             && map.reachability.CanReach(root, x, PathEndMode.OnCell, TraverseMode.PassDoors)).ToList();
     }
 
-    private static bool IsGoodCell(IntVec3 cell, Map map)
+    private static bool isGoodCell(IntVec3 cell, Map map)
     {
-        return cell.InBounds(map) && cell.GetEdifice(map) is null && IsNaturalAndHasFood(cell, map);
+        return cell.InBounds(map) && cell.GetEdifice(map) is null && isNaturalAndHasFood(cell, map);
     }
 
-    private static bool IsNaturalAndHasFood(IntVec3 cell, Map map)
+    private static bool isNaturalAndHasFood(IntVec3 cell, Map map)
     {
         var terrain = cell.GetTerrain(map);
-        if ((ScavengeMod.settings.disabledTerrains != null &&
-             !ScavengeMod.settings.disabledTerrains.Contains(terrain.defName) ||
-             ScavengeMod.settings.disabledTerrains is null)
+        if ((ScavengeMod.Settings.disabledTerrains != null &&
+             !ScavengeMod.Settings.disabledTerrains.Contains(terrain.defName) ||
+             ScavengeMod.Settings.disabledTerrains is null)
             && !terrain.Removable)
         {
             return terrain.GetModExtension<TerrainExtension>() != null;

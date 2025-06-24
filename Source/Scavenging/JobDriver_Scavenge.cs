@@ -8,12 +8,12 @@ namespace Scavenging;
 
 public class JobDriver_Scavenge : JobDriver
 {
-    public const int InitialStandingPeriod = 360;
+    private const int InitialStandingPeriod = 360;
     private int curWorkTick;
 
     private int nextTurnTick;
     public Thing ScavengeSpot => TargetA.Thing;
-    public IntVec3 Cell => TargetB.Cell;
+    private IntVec3 Cell => TargetB.Cell;
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
@@ -57,7 +57,7 @@ public class JobDriver_Scavenge : JobDriver
             tickAction = () =>
             {
                 curWorkTick++;
-                if (curWorkTick < GetScavengingPeriod(Cell))
+                if (curWorkTick < getScavengingPeriod(Cell))
                 {
                     return;
                 }
@@ -76,7 +76,7 @@ public class JobDriver_Scavenge : JobDriver
                 ReadyForNextToil();
             }
         };
-        doScavenging.WithProgressBar(TargetIndex.B, () => curWorkTick / (float)GetScavengingPeriod(Cell));
+        doScavenging.WithProgressBar(TargetIndex.B, () => curWorkTick / (float)getScavengingPeriod(Cell));
         doScavenging.PlaySustainerOrSound(() => SC_DefOf.Harvest_Standard);
 
         doScavenging.defaultCompleteMode = ToilCompleteMode.Never;
@@ -84,12 +84,12 @@ public class JobDriver_Scavenge : JobDriver
         yield return doScavenging;
     }
 
-    private int GetScavengingPeriod(IntVec3 cell)
+    private int getScavengingPeriod(IntVec3 cell)
     {
         var extension = cell.GetTerrain(Map).GetModExtension<TerrainExtension>();
-        var plantWorkbonus = pawn.GetStatValue(StatDefOf.PlantWorkSpeed);
+        var plantWorkBonus = pawn.GetStatValue(StatDefOf.PlantWorkSpeed);
         var huntingWorkBonus = pawn.GetStatValue(StatDefOf.HuntingStealth);
-        var total = 1 + plantWorkbonus + huntingWorkBonus;
+        var total = 1 + plantWorkBonus + huntingWorkBonus;
         return (int)(extension.workAmount / total);
     }
 

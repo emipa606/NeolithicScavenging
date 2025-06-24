@@ -12,12 +12,12 @@ internal static class SettingsApplier
 
     public static void ApplySettings()
     {
-        if (ScavengeMod.settings.terrainSettings == null)
+        if (ScavengeMod.Settings.terrainSettings == null)
         {
             return;
         }
 
-        foreach (var terrainSettings in ScavengeMod.settings.terrainSettings)
+        foreach (var terrainSettings in ScavengeMod.Settings.terrainSettings)
         {
             var terrain = DefDatabase<TerrainDef>.GetNamedSilentFail(terrainSettings.Key);
 

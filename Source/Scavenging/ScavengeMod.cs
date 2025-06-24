@@ -6,20 +6,20 @@ namespace Scavenging;
 
 internal class ScavengeMod : Mod
 {
-    public static ScavengeSettings settings;
-    public static string currentVersion;
+    public static ScavengeSettings Settings;
+    public static string CurrentVersion;
 
     public ScavengeMod(ModContentPack pack) : base(pack)
     {
-        settings = GetSettings<ScavengeSettings>();
-        currentVersion =
+        Settings = GetSettings<ScavengeSettings>();
+        CurrentVersion =
             VersionFromManifest.GetVersionFromModMetaData(pack.ModMetaData);
     }
 
     public override void DoSettingsWindowContents(Rect inRect)
     {
         base.DoSettingsWindowContents(inRect);
-        settings.DoSettingsWindowContents(inRect);
+        Settings.DoSettingsWindowContents(inRect);
     }
 
     public override void WriteSettings()

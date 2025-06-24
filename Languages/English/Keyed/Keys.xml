@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <SC.CannotPlaceSpotsNearToEachOther>This area is already being scavenged.</SC.CannotPlaceSpotsNearToEachOther>
   <SC.CannotScavengeNoUsableTiles>Cannot scavenge, no usable tiles</SC.CannotScavengeNoUsableTiles>
