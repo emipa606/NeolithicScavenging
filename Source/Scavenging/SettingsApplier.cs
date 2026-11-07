@@ -35,10 +35,7 @@ internal static class SettingsApplier
                 foreach (var sc in terrainSettings.Value.scavengingChance)
                 {
                     var entry = extension.scavengables.FirstOrDefault(x => x.thingDef == sc.Key);
-                    if (entry != null)
-                    {
-                        entry.chance = sc.Value;
-                    }
+                    entry?.chance = sc.Value;
                 }
             }
 
@@ -50,10 +47,7 @@ internal static class SettingsApplier
             foreach (var sc in terrainSettings.Value.spawnAmount)
             {
                 var entry = extension.scavengables.FirstOrDefault(x => x.thingDef == sc.Key);
-                if (entry != null)
-                {
-                    entry.amountToSpawn = sc.Value;
-                }
+                entry?.amountToSpawn = sc.Value;
             }
         }
     }

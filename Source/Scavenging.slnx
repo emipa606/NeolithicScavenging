@@ -3,4 +3,30 @@
     <BuildType Name="Release" />
   </Configurations>
   <Project Path="Scavenging/Scavenging.csproj" />
+  <Folder Name="/.github/">
+    <File Path="../.github/copilot-instructions.md" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThingDefs_Items/">
+    <File Path="../1.7/Defs/ThingDefs_Items/Items_Food.xml" />
+    <File Path="../1.7/Defs/ThingDefs_Items/Items_Resource_RawFood.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/Jobs/">
+    <File Path="../1.7/Defs/Jobs/Jobs.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Patches/">
+    <File Path="../1.7/Patches/Core.xml" />
+    <File Path="../1.7/Patches/WorkTablesPatches.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThoughtDefs/">
+    <File Path="../1.7/Defs/ThoughtDefs/Thoughts_Memory_Eating.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThingDefs_Buildings/">
+    <File Path="../1.7/Defs/ThingDefs_Buildings/Buildings_Misc.xml" />
+  </Folder>
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/Keys.xml" />
+  </Folder>
 </Solution>
